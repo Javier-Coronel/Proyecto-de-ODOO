@@ -1,2 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_taller_taller,taller.taller,model_taller_taller,base.group_user,1,1,1,1
+access_taller_vehiculo,taller.vehiculo,model_taller_vehiculo,base.group_user,1,1,1,1
+access_taller_orden_reparacion,taller.orden_reparacion,model_taller_orden_reparacion,base.group_user,1,1,1,1
+access_taller_cliente,taller.cliente,model_taller_cliente,base.group_user,1,1,1,1
+access_taller_mecanico,taller.mecanico,model_taller_mecanico,base.group_user,1,1,1,1
+access_taller_servicio,taller.servicio,model_taller_servicio,base.group_user,1,1,1,1
+access_taller_repuesto,taller.repuesto,model_taller_repuesto,base.group_user,1,1,1,1
+access_taller_persona,taller.persona,model_taller_persona,base.group_user,1,1,1,1

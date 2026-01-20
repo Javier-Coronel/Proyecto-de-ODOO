@@ -2,7 +2,7 @@
 
 from . import models
 from . import vehiculo
-from . import reparacion
+from . import orden_reparacion
 from . import persona
 from . import mecanico
 from . import servicio
