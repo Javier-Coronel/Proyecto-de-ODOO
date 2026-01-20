@@ -34,7 +34,7 @@ class Vehiculo(models.Model):
     
     reparaciones_ids = fields.One2many(
         string='Reparaciones',
-        comodel_name='taller.reparacion',
+        comodel_name='taller.orden_reparacion',
         inverse_name='vehiculo_id'
     )
 
