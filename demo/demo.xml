@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <record id="demo_vehiculo_1" model="taller.vehiculo">
+            <field name="matricula">1234-XYZ</field>
+            <field name="numbastidor">VFA123456789</field>
+            <field name="vehicle_type">car</field>
+            <field name="fecha_compra">2020-01-01</field>
+        </record>
+
+        <record id="demo_orden_1" model="taller.orden_reparacion">
+            <field name="vehiculo_id" ref="demo_vehiculo_1"/>
+            <field name="coste">150.00</field>
+            <field name="fecha_reparacion">2023-10-20</field>
+            <field name="state">borrador</field>
+        </record>
+    </data>
+</odoo>

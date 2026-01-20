@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+        <menuitem id="menu_taller_root" name="Taller Mecánico" sequence="10"/>
+
+        <menuitem id="menu_taller_gestion" name="Gestión" parent="menu_taller_root" sequence="1"/>
+        
+        <menuitem id="menu_taller_vehiculo" name="Vehículos" parent="menu_taller_gestion" action="action_taller_vehiculo"/>
+                  
+        <menuitem id="menu_taller_orden" name="Órdenes de Reparación" parent="menu_taller_gestion" action="action_taller_orden"/>
+    </data>
+</odoo>
