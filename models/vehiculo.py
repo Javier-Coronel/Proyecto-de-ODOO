@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 """
- 4. taller.vehiculo (Coche/Moto con matrícula y bastidor)
+ 4. taller.vehiculo
 """
 
 from odoo import models, fields, api
 
-class vehiculo(models.Model):
-    _name= 'taller_mecanico_de_vehiculos.vehiculo'
+class Vehiculo(models.Model):
+    _name = 'taller.vehiculo'
     _description = 'Vehículo a reparar'
+    _rec_name = 'matricula' # Recomendado: para buscar por matrícula
 
     matricula = fields.Char(string="Matrícula", required=True)
     numbastidor = fields.Char(string="Número de Bastidor (VIN)", required=True)
@@ -22,27 +23,33 @@ class vehiculo(models.Model):
         default='car'
     )
 
-    fecha_compra=fields.Date(
+    fecha_compra = fields.Date(
         string='Fecha de la compra del vehículo',
-        default=fields.Date.today
+        default=fields.Date.context_today # 'context_today' es más seguro que 'today' por la zona horaria
     )
 
-    num_reparaciones=fields.Integer(
-        compute='_compute_num_reparaciones' )
+    num_reparaciones = fields.Integer(
+        string="Total Reparaciones",
+        compute='_compute_num_reparaciones' 
+    )
     
-    repair_ids=fields.One2many(
+    # Campo definido como 'reparaciones_ids'
+    reparaciones_ids = fields.One2many(
         string='Reparaciones',
-        comodel_name='taller_mecanico_de_vehiculos.reparacion',
+        comodel_name='taller.reparacion',
         inverse_name='vehiculo_id'
     )
 
-    cliente_id=fields.Many2one(
+    cliente_id = fields.Many2one(
         string='Clientes',
-        comodel_name='taller_mecanico_de_vehiculos.cliente',
+        comodel_name='taller.cliente',
         ondelete='restrict',
     )
 
+    # CORRECCIÓN AQUÍ:
+    # El depends debe coincidir con el nombre del campo One2many de arriba (reparaciones_ids)
     @api.depends('reparaciones_ids')
     def _compute_num_reparaciones(self):
         for record in self:
+            # CORRECCIÓN AQUÍ TAMBIÉN:
             record.num_reparaciones = len(record.reparaciones_ids)
