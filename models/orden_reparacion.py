@@ -33,3 +33,8 @@ class orden_reparacion(models.Model):
         comodel_name='taller.repuesto',
         string="Repuestos utilizados"
     )
+
+    servicios_ids = fields.Many2many(
+        comodel_name='taller.servicio',
+        string="Servicios realizados"
+    )
