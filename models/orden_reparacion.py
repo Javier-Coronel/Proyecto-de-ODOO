@@ -9,8 +9,7 @@ class orden_reparacion(models.Model):
     _name = 'taller.orden_reparacion'
     _description = 'Orden de Reparación'
 
-    nombrepieza = fields.Char(string="Nombre de pieza", required=True)
-    coste =fields.Float(string="Coste de la pieza", required=True)
+    coste =fields.Float(string="Coste de la reparacion", required=True)
     descuento =fields.Float(string="Descuento aplicado")
 
     fecha_reparacion = fields.Date(
