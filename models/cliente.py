@@ -6,12 +6,17 @@
 from odoo import models, fields, api
 
 class Cliente(models.Model):
+    _inherit = "taller.persona"
     _name = 'taller.cliente'
     _descripcion = 'Cliente del taller'
 
-    speciality = fields.Char(string="Especialidad", required=True)
+    paymentMethod = fields.Char(string="Metodo de pago", required=True)
     
-    position = fields.Char(string="Puesto", required=True)
+    phoneNumbre = fields.Integer(string="Telefono de contacto", required=True)
     
-    hireDate = fields.Date(string="Fecha de contratación", required=True)
-    
+    registerDate = fields.Date(string="Fecha de registro", required=True)
+
+    vehiculos_ids = fields.One2many(
+        string="Vehiculos del cliente",
+        comodel_name='taller.vehiculo',
+    )
