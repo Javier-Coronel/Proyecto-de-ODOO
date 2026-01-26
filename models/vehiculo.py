@@ -42,6 +42,7 @@ class Vehiculo(models.Model):
         string='Clientes',
         comodel_name='taller.cliente',
         ondelete='restrict',
+        required=True
     )
 
     @api.depends('reparaciones_ids')

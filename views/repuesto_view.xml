@@ -120,11 +120,4 @@
             </p>
         </field>
     </record>
-
-    <menuitem id="menu_taller_repuesto"
-            name="Repuestos"
-            parent="menu_taller_root"
-            action="action_taller_repuesto"
-            sequence="10"/>
-
 </odoo>

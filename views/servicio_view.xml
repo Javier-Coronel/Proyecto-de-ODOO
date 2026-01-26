@@ -120,11 +120,4 @@
             </p>
         </field>
     </record>
-
-    <menuitem id="menu_taller_servicio"
-            name="Servicios"
-            parent="menu_taller_root"
-            action="action_taller_servicio"
-            sequence="20"/>
-
 </odoo>

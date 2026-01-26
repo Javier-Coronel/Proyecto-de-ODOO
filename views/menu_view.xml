@@ -7,5 +7,9 @@
         <menuitem id="menu_taller_vehiculo" name="Vehículos" parent="menu_taller_gestion" action="action_taller_vehiculo"/>
                   
         <menuitem id="menu_taller_orden" name="Órdenes de Reparación" parent="menu_taller_gestion" action="action_taller_orden"/>
+
+        <menuitem id="menu_taller_repuesto" name="Repuestos" parent="menu_taller_gestion" action="action_taller_repuesto"/>
+
+        <menuitem id="menu_taller_servicio" name="Servicios" parent="menu_taller_gestion" action="action_taller_servicio"/>
     </data>
 </odoo>
