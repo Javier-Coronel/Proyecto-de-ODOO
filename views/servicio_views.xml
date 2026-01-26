@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_taller_servicio_search" model="ir.ui.view">
+        <field name="name">taller.servicio.search</field>
+        <field name="model">taller.servicio</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Servicios">
+                <field name="tipo"/>
+                <field name="fecha"/>
+                
+                <filter string="Reponer Stock" name="filter_reponer" domain="[('tipo', '=', 'reponer')]"/>
+                <filter string="Servicios Caros (>50)" name="filter_caros" domain="[('coste', '>', 50)]"/>
+                
+                <group expand="0" string="Agrupar Por">
+                    <filter string="Tipo de Servicio" name="group_by_tipo" context="{'group_by': 'tipo'}"/>
+                    <filter string="Fecha" name="group_by_fecha" context="{'group_by': 'fecha:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_taller_servicio_tree" model="ir.ui.view">
+        <field name="name">taller.servicio.tree</field>
+        <field name="model">taller.servicio</field>
+        <field name="arch" type="xml">
+            <tree string="Servicios" sample="1">
+                <field name="fecha"/>
+                <field name="tipo" widget="badge" decoration-info="tipo == 'limpiado'" decoration-warning="tipo == 'reponer'"/>
+                <field name="coste" sum="Total Ingresos" widget="monetary"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_taller_servicio_form" model="ir.ui.view">
+        <field name="name">taller.servicio.form</field>
+        <field name="model">taller.servicio</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="tipo" class="oe_edit_only"/>
+                        <h1><field name="tipo"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="fecha"/>
+                        </group>
+                        <group>
+                            <field name="coste" widget="monetary"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_taller_servicio_kanban" model="ir.ui.view">
+        <field name="name">taller.servicio.kanban</field>
+        <field name="model">taller.servicio</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="tipo" sample="1">
+                <field name="tipo"/>
+                <field name="coste"/>
+                <field name="fecha"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click oe_kanban_card">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="tipo"/>
+                                    </strong>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_body">
+                                <span class="text-muted"><field name="fecha"/></span>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_right">
+                                    <strong class="text-success"><field name="coste" widget="monetary"/></strong>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_taller_servicio_calendar" model="ir.ui.view">
+        <field name="name">taller.servicio.calendar</field>
+        <field name="model">taller.servicio</field>
+        <field name="arch" type="xml">
+            <calendar string="Calendario de Servicios" date_start="fecha" color="tipo" mode="month">
+                <field name="tipo"/>
+                <field name="coste" widget="monetary"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_taller_servicio_graph" model="ir.ui.view">
+        <field name="name">taller.servicio.graph</field>
+        <field name="model">taller.servicio</field>
+        <field name="arch" type="xml">
+            <graph string="Coste por Servicio" type="pie"> <field name="tipo"/>
+                <field name="coste" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_taller_servicio" model="ir.actions.act_window">
+        <field name="name">Servicios</field>
+        <field name="res_model">taller.servicio</field>
+        <field name="view_mode">tree,kanban,form,calendar,graph</field>
+        <field name="search_view_id" ref="view_taller_servicio_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Registra tu primer servicio del taller.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_taller_servicio"
+            name="Servicios"
+            parent="menu_taller_root"
+            action="action_taller_servicio"
+            sequence="20"/>
+
+</odoo>

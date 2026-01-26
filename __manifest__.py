@@ -24,6 +24,8 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'views/repuesto_views.xml'
+        'views/servicio_views.xml'
         'views/orden_reparacion_view.xml',
         'views/vehiculo_view.xml',
         'views/menu_view.xml',
