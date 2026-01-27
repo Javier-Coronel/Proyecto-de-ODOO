@@ -11,5 +11,9 @@
         <menuitem id="menu_taller_repuesto" name="Repuestos" parent="menu_taller_gestion" action="action_taller_repuesto"/>
 
         <menuitem id="menu_taller_servicio" name="Servicios" parent="menu_taller_gestion" action="action_taller_servicio"/>
+        
+        <menuitem id="menu_taller_cliente" name="Clientes" parent="menu_taller_gestion" action="action_taller_cliente"/>
+        
+        <menuitem id="menu_taller_mecanico" name="Mecanicos" parent="menu_taller_gestion" action="action_taller_mecanico"/>
     </data>
 </odoo>

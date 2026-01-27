@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+        <record id="view_taller_cliente_tree" model="ir.ui.view">
+            <field name="name">taller.cliente.tree</field>
+            <field name="model">taller.cliente</field>
+            <field name="arch" type="xml">
+                <tree string="Cliente">
+                    <field name="name"/>
+                    <field name="direction"/>
+                    <field name="phoneNumber"/>
+                    <field name="paymentMethod"/>
+                    <field name="num_vehiculos"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_taller_cliente_form" model="ir.ui.view">
+            <field name="name">taller.cliente.form</field>
+            <field name="model">taller.cliente</field>
+            <field name="arch" type="xml">
+                <form string="Cliente">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="paymentMethod"/>
+                            </group>
+                            <group>
+                                <field name="phoneNumber"/>
+                                <field name="registerDate"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Vehículos del cliente">
+                                Numero de vehiculos: <field name="num_vehiculos"/>
+                                <field name="vehiculos_ids"/>
+                            </page>
+                            <page string="Datos personales">
+                                <group>
+                                    <field name="dni"/>
+                                    <field name="direction"/>
+                                    <field name="birthDate"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <record id="action_taller_cliente" model="ir.actions.act_window">
+            <field name="name">Clientes</field>
+            <field name="res_model">taller.cliente</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    
+    </data>
+</odoo>

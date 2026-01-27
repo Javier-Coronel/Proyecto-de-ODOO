@@ -28,6 +28,8 @@
         'views/servicio_view.xml',
         'views/orden_reparacion_view.xml',
         'views/vehiculo_view.xml',
+        'views/cliente_view.xml',
+        'views/mecanico_view.xml',
         'views/menu_view.xml',
     ],
     # only loaded in demonstration mode

@@ -1,0 +1,58 @@
+<odoo>
+    <data>
+        <record id="view_taller_mecanico_tree" model="ir.ui.view">
+            <field name="name">taller.mecanico.tree</field>
+            <field name="model">taller.mecanico</field>
+            <field name="arch" type="xml">
+                <tree string="Mecanico">
+                    <field name="name"/>
+                    <field name="direction"/>
+                    <field name="position"/>
+                    <field name="speciality"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_taller_mecanico_form" model="ir.ui.view">
+            <field name="name">taller.mecanico.form</field>
+            <field name="model">taller.mecanico</field>
+            <field name="arch" type="xml">
+                <form string="Mecanico">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="speciality"/>
+                            </group>
+                            <group>
+                                <field name="position"/>
+                                <field name="hireDate"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Reparaciones hechas">
+                                Numero de reparaciones mensualmente: <field name="reparaciones_monthly"/>
+                                <field name="reparaciones_ids"/>
+                            </page>
+                            <page string="Datos personales">
+                                <group>
+                                    <field name="dni"/>
+                                    <field name="direction"/>
+                                    <field name="birthDate"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <record id="action_taller_mecanico" model="ir.actions.act_window">
+            <field name="name">Mecanicos</field>
+            <field name="res_model">taller.mecanico</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    
+    </data>
+</odoo>

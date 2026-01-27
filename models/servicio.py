@@ -1,3 +1,5 @@
+from odoo import models, fields, api
+
 class Servicio(models.Model):
     _name = 'taller.servicio'
     _description = 'Servicios relacionados con reparaciones'
