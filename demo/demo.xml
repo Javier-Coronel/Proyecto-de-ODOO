@@ -7,7 +7,59 @@
             <field name="birthDate">1990-01-01</field>
             
             <field name="paymentMethod">Tarjeta</field>
-            <field name="phoneNumber">600123456</field> <field name="registerDate">2023-01-01</field>
+            <field name="phoneNumber">600123456</field>
+            <field name="registerDate">2023-01-01</field>
+        </record>
+        <record id="demo_cliente_2" model="taller.cliente">
+            <field name="name">Luisa Demo</field>
+            <field name="dni">12345677R</field>
+            <field name="direction">Calle Falsa 124</field>
+            <field name="birthDate">1990-01-01</field>
+            
+            <field name="paymentMethod">Efectivo</field>
+            <field name="phoneNumber">432654678</field>
+            <field name="registerDate">2025-01-01</field>
+        </record>
+        <record id="demo_cliente_3" model="taller.cliente">
+            <field name="name">Antonio Demo</field>
+            <field name="dni">12345679O</field>
+            <field name="direction">Calle Falsisima 123</field>
+            <field name="birthDate">1990-01-01</field>
+            
+            <field name="paymentMethod">Cheque</field>
+            <field name="phoneNumber">765456876</field>
+            <field name="registerDate">2022-05-11</field>
+        </record>
+        
+        <record id="demo_mecanico_1" model="taller.mecanico">
+            <field name="name">Juan Demo</field>
+            <field name="dni">12345678Z</field>
+            <field name="direction">Calle Falsa 123</field>
+            <field name="birthDate">1990-01-01</field>
+            
+            <field name="speciality">engine</field>
+            <field name="position">600123456</field>
+            <field name="hireDate">2023-01-01</field>
+        </record>
+        <record id="demo_mecanico_2" model="taller.mecanico">
+            <field name="name">Luisa Demo</field>
+            <field name="dni">12345677R</field>
+            <field name="direction">Calle Falsa 124</field>
+            <field name="birthDate">1990-01-01</field>
+            
+            <field name="speciality">chassis</field>
+            <field name="position">432654678</field>
+            <field name="hireDate">2025-01-01</field>
+        </record>
+        <record id="demo_mecanico_3" model="taller.mecanico">
+            <field name="name">Antonio Demo</field>
+            <field name="dni">12345679O</field>
+            <field name="direction">Calle Falsisima 123</field>
+            <field name="birthDate">1990-01-01</field>
+            
+            <field name="speciality">tire</field>
+            <field name="position">Superior</field>
+            <field name="hireDate">2022-05-11</field>
         </record>
 
         <record id="demo_vehiculo_1" model="taller.vehiculo">
